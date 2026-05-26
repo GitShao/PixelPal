@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .scanline-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanline-effect::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            z-index: 2;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+        .pixel-card-shadow {
+            box-shadow: 4px 4px 0px 0px #1B2A41;
+        }
+        .pixel-button-pressed {
+            transition: transform 0.1s;
+        }
+        .pixel-button-pressed:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #1B2A41;
+        }
+        .bubble-left {
+            position: relative;
+            border: 2px solid #1B2A41;
+        }
+        .bubble-left::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 12px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 10px solid #1B2A41;
+        }
+        .bubble-right {
+            position: relative;
+            border: 2px solid #1B2A41;
+        }
+        .bubble-right::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 12px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 10px solid #1B2A41;
+        }
+        .glint {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 4px;
+            height: 4px;
+            background: white;
+            opacity: 0.6;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#2138de",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#435900",
+                    "surface-variant": "#e0e3e6",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "secondary-fixed-dim": "#ebc31a",
+                    "pixel-green": "#C3F53C",
+                    "paper-white": "#FFFFFF",
+                    "outline-variant": "#c5c5d8",
+                    "surface-dim": "#d7dadd",
+                    "on-surface-variant": "#444656",
+                    "surface-container-low": "#f1f4f7",
+                    "surface-container-high": "#e5e8eb",
+                    "primary-container": "#4156f6",
+                    "secondary-container": "#fed330",
+                    "surface-container": "#ebeef1",
+                    "outline": "#757687",
+                    "inverse-primary": "#bcc2ff",
+                    "on-tertiary-fixed": "#151f00",
+                    "primary-fixed": "#dfe0ff",
+                    "surface-container-highest": "#e0e3e6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#181c1e",
+                    "tertiary-fixed-dim": "#a7d717",
+                    "surface-bright": "#f7fafd",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "workplace-blue": "#4156F6",
+                    "on-tertiary-fixed-variant": "#3a4d00",
+                    "on-background": "#181c1e",
+                    "on-primary-container": "#eaeaff",
+                    "on-primary-fixed": "#000b62",
+                    "inverse-on-surface": "#eef1f4",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#3248ea",
+                    "moyu-yellow": "#FAD02C",
+                    "surface": "#f7fafd",
+                    "on-secondary-fixed": "#231b00",
+                    "tertiary-fixed": "#c2f43b",
+                    "ink-black": "#1B2A41",
+                    "secondary-fixed": "#ffe07d",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#564500",
+                    "on-secondary": "#ffffff",
+                    "alert-red": "#FF4B2B",
+                    "secondary": "#725c00",
+                    "on-tertiary-container": "#cafd44",
+                    "on-primary-fixed-variant": "#0827d3",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#577300",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#705b00",
+                    "background": "#f7fafd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "px-unit": "4px",
+                    "pixel-border-md": "4px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "pixel-border-sm": "2px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-tag": ["Space Mono"],
+                    "label-pixel": ["Space Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-tag": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+                    "label-pixel": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen items-center overflow-x-hidden scanline-effect">
+<!-- Top AppBar -->
+<header class="w-full top-0 sticky z-50 bg-paper-white border-b-pixel-border-md border-ink-black shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] max-w-[480px] mx-auto">
+<div class="flex justify-between items-center px-margin-mobile py-base h-16 w-full">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 border-2 border-ink-black overflow-hidden bg-moyu-yellow relative">
+<img alt="Old Wang" class="w-full h-full object-cover" data-alt="A detailed pixel art portrait of a grumpy veteran office worker who is a sharp-tongued Shiba Inu dog wearing a tiny 90s business suit and glasses. The style is classic 16-bit RPG aesthetic with vibrant colors, high contrast, and visible pixel grids. The background is a simplified office cubicle in retro teal and grey tones, creating a nostalgic yet professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD90oAdbc5KNwXjg81f8biCGaiEZQMbZil-7g8SgNqms0tQ39q3qPGdc8Xt8i5Mb1Az4O5FGbxdWNczxDLjdjrNgSunPnn9dNyOP3SAa8j5YumhQxArHeIp79EqDkDKZ8Gh2S6jXBH1nOAveXclYwtyt1qDVW8-VQDBUYqJVdZ4hnTZ-c1NnxLnou0kHqYU8x_vnwm_IMNTf-8BE_O0ElQdS0r61YGsfmWJC6P9wudcCABFvuwxMdBrg8liOz7Z7p5jiy8LQMiKA38"/>
+<div class="glint"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-ink-black leading-none">OLD WANG</span>
+<span class="font-label-pixel text-primary text-[10px] uppercase">Status: Grinding</span>
+</div>
+</div>
+<div class="flex gap-base">
+<button class="p-1 hover:bg-surface-container-high transition-transform active:translate-y-px-unit border-2 border-ink-black bg-paper-white">
+<span class="material-symbols-outlined text-ink-black" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1 hover:bg-surface-container-high transition-transform active:translate-y-px-unit border-2 border-ink-black bg-paper-white">
+<span class="material-symbols-outlined text-ink-black" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 w-full max-w-[480px] mx-auto px-margin-mobile py-base flex flex-col gap-gutter mb-40 overflow-y-auto">
+<!-- System Time Divider -->
+<div class="flex justify-center my-base">
+<span class="bg-ink-black text-paper-white px-base py-px-unit font-label-pixel text-[10px] border-pixel-border-sm border-ink-black">
+                MON 09:15 AM - QUEST LOG STARTED
+            </span>
+</div>
+<!-- Old Wang Message -->
+<div class="flex gap-base items-start">
+<div class="w-8 h-8 border-2 border-ink-black flex-shrink-0 bg-moyu-yellow">
+<img alt="Old Wang Small" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEtSeKTNxRu1xkuj5fM8dSSr2rhAeG0n1xg5UVzlvLchI8S60KQ7UE7IoEFJQeYtZ6Drj5bouCNHSjzM4ucSmyoLh7di4JTRGR3AJBRLGn4HIDqxr68h_ACeXSL2yNqL6CUjZjl8zhkyfUYgM1vzp-_6sRuY9J9OvpatfjcLlj_AxnF5eUZ2YJe-3vAce_NXxwJoHX9P_v7u44GTUbB3ovTNU2LE8xDDVZLGnLnf7G1uNRrlUme8L42KXfNOfLxRMPRFXPjg3X1H4"/>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="bg-paper-white p-base bubble-left pixel-card-shadow">
+<p class="font-label-pixel text-ink-black text-body-sm leading-relaxed">
+                        Oh, look who decided to log in. Don't tell me you're already looking for a place to hide from that PRD meeting?
+                    </p>
+</div>
+<span class="font-label-pixel text-[10px] text-on-surface-variant">09:16 AM</span>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-base items-start flex-row-reverse">
+<div class="w-8 h-8 border-2 border-ink-black flex-shrink-0 bg-workplace-blue">
+<img alt="Player Avatar" class="w-full h-full object-cover" data-alt="A charming pixel art character portrait of a young digital nomad with blue hair and a yellow headset. The art style is crisp 16-bit RPG with heavy black outlines and vibrant flat colors. The background is a solid workplace blue with a subtle subtle pixel grid pattern, representing a modern gaming user interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDjYvYTp21VUtJkvLht5_5O4EXQVWyx9uLE_3854PqN6PLugAyFHuSYeE6H9UExdNFLwRgCC62UUkX70qZKPBoEy03uTu7DXBQ7Y6pZ83Ct7x_0Nbb-DhdKGn2MU_rhs1UE68yRdsm5x-eeo5uj1K4eCtHsa55LPOvITkJVm5wu6qKp_RyBQ4-37tjawSQOqKGVOl1A3EtoWaPgEfYXLuvyETjp5lAd12c_iNI9s0B_NOekLhiNgYfPHksAiDewOGsXWxidUP8zDA"/>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%] items-end">
+<div class="bg-pixel-green p-base bubble-right pixel-card-shadow">
+<p class="font-label-pixel text-ink-black text-body-sm leading-relaxed">
+                        You know me too well, Wang. The pressure is real today.
+                    </p>
+</div>
+<span class="font-label-pixel text-[10px] text-on-surface-variant">09:17 AM</span>
+</div>
+</div>
+<!-- Old Wang Response -->
+<div class="flex gap-base items-start">
+<div class="w-8 h-8 border-2 border-ink-black flex-shrink-0 bg-moyu-yellow">
+<img alt="Old Wang Small" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDczR4iqgc-D8SaaLqdDEJ154EACEpGFtyUik4uz3A27HSwOB2GNkgn1ZvQum2kh9BOMZWvtTvJllnt5bgzCgQLO3X2a9dp3K_A65WK1l2DI7LDy_kT1C3MPJ7rHhU0ptSX6XFqaQk8-D__2BpgEnMrOOIbgAKKYsNFf9ffA4gRykZcH_EWlfjWZ4T5tAIqjwjjuui2kO4XBxJG3MGVwfNwvZTXZiMruH7sx42Tf9KU23C8zNb2v0dFb5pY4VMO3ZBhpyXEqStioMk"/>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="bg-paper-white p-base bubble-left pixel-card-shadow">
+<p class="font-label-pixel text-ink-black text-body-sm leading-relaxed">
+                        Pressure is just the "End Boss" theme song playing in your head. So, what's the damage? Boss trying to sell you "vision" again or did you write a bug that looks like a feature?
+                    </p>
+</div>
+<span class="font-label-pixel text-[10px] text-on-surface-variant">09:18 AM</span>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 w-full max-w-[480px] left-1/2 -translate-x-1/2 bg-paper-white border-t-pixel-border-md border-ink-black z-50">
+<!-- Quick Reply Chips -->
+<div class="flex gap-base px-margin-mobile py-base overflow-x-auto no-scrollbar border-b-2 border-ink-black bg-surface-container-low">
+<button class="flex-shrink-0 bg-workplace-blue text-paper-white border-2 border-ink-black px-base py-px-unit font-label-pixel text-[10px] uppercase pixel-button-pressed relative">
+<div class="glint"></div>
+                Boss is PUA-ing me
+            </button>
+<button class="flex-shrink-0 bg-moyu-yellow text-ink-black border-2 border-ink-black px-base py-px-unit font-label-pixel text-[10px] uppercase pixel-button-pressed relative">
+<div class="glint"></div>
+                Need Slacking Advice
+            </button>
+<button class="flex-shrink-0 bg-pixel-green text-ink-black border-2 border-ink-black px-base py-px-unit font-label-pixel text-[10px] uppercase pixel-button-pressed relative">
+<div class="glint"></div>
+                Roast my PRD
+            </button>
+</div>
+<!-- Message Input -->
+<div class="flex items-center gap-base px-margin-mobile py-base h-20">
+<div class="flex-1 border-2 border-ink-black bg-surface-container h-12 flex items-center px-base relative">
+<!-- Inner recessed effect -->
+<div class="absolute inset-0 border-t-2 border-l-2 border-outline-variant pointer-events-none"></div>
+<input class="w-full bg-transparent border-none focus:ring-0 font-label-pixel text-body-sm text-ink-black placeholder:text-on-surface-variant" placeholder="Type a quest report..." type="text"/>
+</div>
+<button class="w-12 h-12 bg-primary border-2 border-ink-black flex items-center justify-center pixel-button-pressed shadow-[2px_2px_0px_0px_rgba(27,42,65,1)]">
+<span class="material-symbols-outlined text-paper-white" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<!-- Global Navigation -->
+<nav class="flex justify-around items-center h-20 px-base pb-safe bg-paper-white border-t-pixel-border-md border-ink-black">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-pixel text-label-pixel uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-pixel text-label-pixel uppercase">Social</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="local_cafe">local_cafe</span>
+<span class="font-label-pixel text-label-pixel uppercase">Tea Room</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-pixel-green text-ink-black border-2 border-ink-black p-1 active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-pixel text-label-pixel uppercase">AI</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-pixel text-label-pixel uppercase">Profile</span>
+</div>
+</nav>
+</div>
+<script>
+        // Simple Interaction Logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Haptic feedback simulation
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+
+        // Quick Reply Functionality
+        const quickReplies = document.querySelectorAll('.flex-shrink-0.bg-workplace-blue, .flex-shrink-0.bg-moyu-yellow, .flex-shrink-0.bg-pixel-green');
+        const inputField = document.querySelector('input');
+
+        quickReplies.forEach(chip => {
+            chip.addEventListener('click', () => {
+                inputField.value = chip.innerText.trim();
+                inputField.focus();
+            });
+        });
+    </script>
+</body></html>

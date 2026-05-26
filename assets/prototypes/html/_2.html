@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anonymous Tea Room</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Space+Grotesk:wght@700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#2138de",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#435900",
+                    "surface-variant": "#e0e3e6",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "secondary-fixed-dim": "#ebc31a",
+                    "pixel-green": "#C3F53C",
+                    "paper-white": "#FFFFFF",
+                    "outline-variant": "#c5c5d8",
+                    "surface-dim": "#d7dadd",
+                    "on-surface-variant": "#444656",
+                    "surface-container-low": "#f1f4f7",
+                    "surface-container-high": "#e5e8eb",
+                    "primary-container": "#4156f6",
+                    "secondary-container": "#fed330",
+                    "surface-container": "#ebeef1",
+                    "outline": "#757687",
+                    "inverse-primary": "#bcc2ff",
+                    "on-tertiary-fixed": "#151f00",
+                    "primary-fixed": "#dfe0ff",
+                    "surface-container-highest": "#e0e3e6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#181c1e",
+                    "tertiary-fixed-dim": "#a7d717",
+                    "surface-bright": "#f7fafd",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "workplace-blue": "#4156F6",
+                    "on-tertiary-fixed-variant": "#3a4d00",
+                    "on-background": "#181c1e",
+                    "on-primary-container": "#eaeaff",
+                    "on-primary-fixed": "#000b62",
+                    "inverse-on-surface": "#eef1f4",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#3248ea",
+                    "moyu-yellow": "#FAD02C",
+                    "surface": "#f7fafd",
+                    "on-secondary-fixed": "#231b00",
+                    "tertiary-fixed": "#c2f43b",
+                    "ink-black": "#1B2A41",
+                    "secondary-fixed": "#ffe07d",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#564500",
+                    "on-secondary": "#ffffff",
+                    "alert-red": "#FF4B2B",
+                    "secondary": "#725c00",
+                    "on-tertiary-container": "#cafd44",
+                    "on-primary-fixed-variant": "#0827d3",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#577300",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#705b00",
+                    "background": "#f7fafd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "px-unit": "4px",
+                    "pixel-border-md": "4px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "pixel-border-sm": "2px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-tag": ["Space Mono"],
+                    "label-pixel": ["Space Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-tag": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+                    "label-pixel": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pixel-shadow {
+            box-shadow: 4px 4px 0px 0px #1B2A41;
+        }
+        .pixel-shadow-sm {
+            box-shadow: 2px 2px 0px 0px #1B2A41;
+        }
+        .pixel-inset {
+            border-top: 2px solid #1B2A41;
+            border-left: 2px solid #1B2A41;
+            border-right: 2px solid #e0e3e6;
+            border-bottom: 2px solid #e0e3e6;
+        }
+        .active-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #1B2A41;
+        }
+        .dotted-divider {
+            background-image: linear-gradient(to right, #1B2A41 50%, transparent 50%);
+            background-size: 8px 2px;
+            background-repeat: repeat-x;
+            height: 2px;
+            width: 100%;
+        }
+        .glint {
+            position: relative;
+        }
+        .glint::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-paper-white dark:bg-ink-black border-b-pixel-border-md border-ink-black dark:border-surface-variant shadow-[4px_4px_0px_0px_rgba(27,42,65,1)]">
+<div class="flex justify-between items-center px-margin-mobile py-base h-16 w-full max-w-[480px] mx-auto">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 bg-pixel-green border-2 border-ink-black overflow-hidden relative">
+<img alt="Avatar" class="w-full h-full" data-alt="A retro 16-bit pixel art character portrait of a focused office worker wearing a headset, set against a vibrant neon green background. The style is reminiscent of 90s handheld RPG games with high contrast and sharp aliased edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxjaSrXBfqKO3ShKAPYLvl07PDrmn4Qp-jHRWwMOxDR4uVtwlqO1i6Q6IZCIewoIDf_k5dnJGZoVENtwYV6zMqnolRGljlSJaBsKnMH1dTNurkFuE6YFVdpW09JsJYlXu3gvTls38Tv4jZhjHHZe9c0OjtaTZKgaoFa2oPb6SIKVgyu8FP0hoU63SMHsVzfRYPexW7NNc66pA98w3RetdvONwpXdl4dU1qyoiRczs5KoMItk1FputW7EIhnF5IDi5XbtfLhN8Sy8o"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">STATUS: GRINDING</h1>
+</div>
+<button class="material-symbols-outlined text-ink-black dark:text-paper-white active:translate-y-px-unit transition-transform" data-icon="notifications">notifications</button>
+</div>
+</header>
+<main class="max-w-[480px] mx-auto pb-32 px-margin-mobile pt-gutter">
+<div class="mb-gutter">
+<h2 class="font-headline-lg text-headline-lg text-ink-black uppercase tracking-tight">Anonymous Tea Room</h2>
+<p class="font-label-pixel text-label-pixel text-on-surface-variant">THE LATEST PIXEL GOSSIP FROM THE CUBICLES</p>
+</div>
+<!-- Gossip Feed Container -->
+<div class="space-y-gutter">
+<!-- Card 1: Newspaper Style -->
+<article class="bg-paper-white border-pixel-border-sm border-ink-black p-base pixel-shadow relative overflow-hidden">
+<div class="flex justify-between items-start border-b-2 border-ink-black pb-base mb-base">
+<span class="font-label-pixel text-[10px] uppercase bg-ink-black text-paper-white px-2 py-0.5">EXTRA! EXTRA!</span>
+<span class="font-label-pixel text-label-pixel text-on-surface-variant">2m ago</span>
+</div>
+<div class="grid grid-cols-3 gap-base">
+<div class="col-span-1 border-2 border-ink-black bg-surface-container overflow-hidden aspect-square">
+<img class="w-full h-full object-cover grayscale brightness-110 contrast-125" data-alt="A 16-bit pixel art illustration of a chaotic server room with smoke coming out of a computer rack. The scene is rendered in high-contrast black and white comic book style, capturing a dramatic 'nuked production' moment in a 90s office software aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8QgbkFmGcoVtg__0oK7QFxqCNnL9x76poW2zuYIHHzuEU1ecPQa4k_LMxi50doY_c9PVG0O54I6-XEVFrqQbk4igJYeuhHqko7_iaUw6gaNiN_PJCTNlDW0cDn0szYzO9eLrgOB0m-pWoFEQPlGjoj6wZ0jvCXpLwloc2pLaTMweEN-tZuMO_cRa9WTNW48F3ESqKQWUOuxdUWyVbViXkwxxgttqsKCqN4X7S11uq3BxvJ5mjVbgavmYKzN6YxLe2HX2fdwYXIV4"/>
+</div>
+<div class="col-span-2">
+<h3 class="font-headline-md text-[18px] leading-tight mb-2 uppercase italic font-bold">Someone in Dev just nuked production...</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">The Slack channel is eerily quiet. I can hear the sweating through the walls. RIP weekend plans for the DevOps squad.</p>
+</div>
+</div>
+<div class="dotted-divider my-base"></div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex gap-base">
+<button class="flex items-center gap-1 font-label-pixel text-label-pixel text-primary border-pixel-border-sm border-primary px-2 py-1 active-press hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px]" data-icon="favorite">favorite</span>
+                            Support
+                        </button>
+<button class="flex items-center gap-1 font-label-pixel text-label-pixel text-secondary border-pixel-border-sm border-secondary px-2 py-1 active-press hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px]" data-icon="mood">mood</span>
+                            Pixel Laugh
+                        </button>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant active-press" data-icon="share">share</button>
+</div>
+</article>
+<!-- Card 2: Bento Style Newspaper -->
+<article class="bg-paper-white border-pixel-border-sm border-ink-black p-base pixel-shadow relative">
+<div class="mb-base flex items-center justify-between">
+<div class="bg-moyu-yellow border-2 border-ink-black px-2 py-1 glint">
+<span class="font-label-tag text-label-tag text-ink-black font-bold uppercase">Hot Tea</span>
+</div>
+<span class="font-label-pixel text-label-pixel text-on-surface-variant">15m ago</span>
+</div>
+<div class="space-y-base">
+<div class="bg-surface-container-highest border-2 border-ink-black p-base italic font-serif">
+<p class="font-headline-md text-headline-md leading-none text-ink-black">"The coffee machine is officially sentient and asking for PTO."</p>
+</div>
+<div class="h-32 bg-ink-black overflow-hidden border-2 border-ink-black">
+<img class="w-full h-full object-cover opacity-80" data-alt="A vibrant 16-bit pixel art of an office coffee machine glowing with a mystical neon light. The style features heavy black outlines and a retro-futuristic color palette of workplace blue and pixel green, reflecting a playful 90s tech vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK490hZnBaseUcR-j3-8aBOCtLdPbe3nJbHaAXZdxdEaqX97pq3LDE99gg5xlkGlCuXJkzoxhvZl3TeaJ3fbUlLiWP6pzY77mQJ0kqq8EJJdj8DKAUn1CAPDtJRrM_Bsgxd-6zOCxmUevsL3Xk5maW5V2EMFMePlqTJTkdaD9Giq19QoAjCaZ_2jAXnYQ2YgBN0UchiHzCLLoWLrZSKVXvlby5gdqZWuCq7m6H9hqelZPct8DGShLEzGRoX4cztCfjvOoQ-ZPq4ok"/>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Third floor breakroom is now a high-stakes negotiation zone. Don't go alone.</p>
+</div>
+<div class="dotted-divider my-base"></div>
+<div class="flex justify-between items-center">
+<div class="flex gap-base">
+<button class="flex items-center gap-1 font-label-pixel text-label-pixel bg-pixel-green border-2 border-ink-black px-3 py-1 active-press hover:brightness-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="thumb_up" data-weight="fill">thumb_up</span>
+                            Support
+                        </button>
+<button class="flex items-center gap-1 font-label-pixel text-label-pixel bg-surface-container border-2 border-ink-black px-3 py-1 active-press hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]" data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+                            Pixel Laugh
+                        </button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center border-2 border-ink-black active-press" data-icon="share">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Minimalist Gossip -->
+<article class="bg-workplace-blue text-paper-white border-pixel-border-sm border-ink-black p-base pixel-shadow">
+<div class="flex gap-base items-start mb-base">
+<div class="bg-paper-white p-1 border-2 border-ink-black">
+<span class="material-symbols-outlined text-ink-black" data-icon="record_voice_over">record_voice_over</span>
+</div>
+<div>
+<h3 class="font-label-pixel text-label-pixel uppercase opacity-80">Heard in the elevator</h3>
+<p class="font-headline-md text-[20px] leading-tight">"If they move the printer one more time, I'm filing a bug report against reality."</p>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-paper-white/20 pt-base mt-base">
+<span class="font-label-pixel text-[10px]">#PrinterWars #OfficeChaos</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-paper-white cursor-pointer active-press" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-paper-white cursor-pointer active-press" data-icon="chat_bubble">chat_bubble</span>
+</div>
+</div>
+</article>
+<!-- Card 4: Newspaper Style B -->
+<article class="bg-paper-white border-pixel-border-sm border-ink-black p-base pixel-shadow">
+<div class="flex justify-center border-b-4 border-double border-ink-black mb-base pb-1">
+<span class="font-label-pixel text-label-pixel text-ink-black">DAILY QUEST DIGEST</span>
+</div>
+<div class="flex gap-gutter">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-2">Manager caught playing PixelQuest during standup.</h3>
+<p class="font-body-sm text-body-sm italic">"I was just checking the UI performance," they said while holding a legendary sword.</p>
+</div>
+<div class="w-24 h-24 border-2 border-ink-black p-1 bg-surface-container">
+<div class="w-full h-full bg-ink-black overflow-hidden">
+<img class="w-full h-full object-cover contrast-150 grayscale" data-alt="A pixel-art-style black and white photo of a computer screen showing a retro RPG game, framed in a vintage newspaper clipping style. The aesthetic is high-contrast 90s gaming, fitting for an anonymous office gossip feed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG69Txt2iIP0CCV2U8eZ75BL_cF-zjnJ-ZnvD0AS5NSuNw9O4xYtEVJ98JfVqPRSLJKIGxNHGDVpxV3HGT5wapwCOYOMU0WGXTZkmfZLzZ-7cRfh1-gzF-z6yodhBAyM2SrWxvQxkd6I9i1tKmMskvcSvpx7U3GjrpOlfzUDz2ybuekl2WImyGma5dTbbsifwV7luq2f9pHwUXa2rrkNJx5in5fhZWNnSpHUUoJDLRWKLULVd5MkiSMWf-zylEBK7e3n2LvRIwV9s"/>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-base pt-base border-t-2 border-ink-black">
+<div class="flex items-center gap-base">
+<button class="font-label-pixel text-label-pixel uppercase border-2 border-ink-black px-2 py-0.5 active-press">Support</button>
+<button class="font-label-pixel text-label-pixel uppercase border-2 border-ink-black px-2 py-0.5 active-press">Laugh</button>
+</div>
+<span class="font-label-pixel text-label-pixel text-on-surface-variant">45m ago</span>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-moyu-yellow border-pixel-border-md border-ink-black pixel-shadow active:translate-y-px-unit active:translate-x-px-unit active:shadow-none transition-all flex items-center justify-center z-50 glint">
+<span class="material-symbols-outlined text-ink-black text-[32px]" data-icon="add_comment">add_comment</span>
+</button>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 w-full max-w-[480px] left-1/2 -translate-x-1/2 bg-paper-white dark:bg-ink-black border-t-pixel-border-md border-ink-black dark:border-surface-variant z-50">
+<div class="flex justify-around items-center h-20 px-base pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-pixel text-[10px] uppercase">Home</span>
+</a>
+<!-- Social -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-pixel text-[10px] uppercase">Social</span>
+</a>
+<!-- Tea Room (Active) -->
+<a class="flex flex-col items-center justify-center bg-pixel-green text-ink-black border-2 border-ink-black p-1 active:translate-y-px-unit transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="local_cafe">local_cafe</span>
+<span class="font-label-pixel text-[10px] uppercase">Tea Room</span>
+</a>
+<!-- AI -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-pixel text-[10px] uppercase">AI</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-pixel text-[10px] uppercase">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'translate(2px, 2px)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = '';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+
+        // Atmospheric effect: Subtle "scanline" overlay logic if desired, 
+        // but keeping it clean for mobile performance.
+    </script>
+</body></html>

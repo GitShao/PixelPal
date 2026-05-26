@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Avatar Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@700&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pixel-grid-bg {
+            background-image: linear-gradient(to right, #e5e8eb 1px, transparent 1px),
+                              linear-gradient(to bottom, #e5e8eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .beveled-border {
+            box-shadow: inset 2px 2px 0px 0px rgba(255, 255, 255, 0.4),
+                        inset -2px -2px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+        .dotted-divider {
+            background-image: linear-gradient(to right, #1B2A41 50%, transparent 50%);
+            background-size: 4px 2px;
+            background-repeat: repeat-x;
+            height: 2px;
+            width: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<div class="max-w-[480px] mx-auto min-h-screen bg-paper-white relative flex flex-col shadow-2xl border-x-pixel-border-md border-ink-black">
+<!-- TopAppBar -->
+<header class="bg-paper-white dark:bg-ink-black text-ink-black dark:text-paper-white font-headline-md text-headline-md w-full top-0 sticky border-b-pixel-border-md border-ink-black dark:border-surface-variant shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] z-50 flex justify-between items-center px-margin-mobile py-base h-16 max-w-[480px] mx-auto">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 border-2 border-ink-black bg-pixel-green flex items-center justify-center overflow-hidden">
+<img alt="Pixel Avatar" class="w-full h-full object-cover" data-alt="A high-quality 16-bit pixel art character headshot featuring a determined expression. The character has spiky blue hair and wears a futuristic silver visor. The aesthetic follows a retro 90s RPG style with crisp, non-aliased edges and a vibrant palette of neon green and deep navy. The lighting is flat but high-contrast, emphasizing the pixelated geometry against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6H6NWP-CR3EIGdjjDse5w5ewRSEaCc5am5ZNKfFJTZCdWIjktg7cwvECx69we1scLoECj-ZU64E0A6Viw7afTpRLf7VdFLBy7xtr9yT2VizwGg3dQ0d8u6UOcrt9zlR-_wzF8-Y8p7H54lL4HJ7fKXerrPsX8VTrhXXOR1t5GM9DOWXd0ROAil9rLaWxXukd_r8P7svs4_TwENBqhlsC0sLMNTXMXvUx1vD36OU-n0l2UnBo0etraICIP2eGkAYEfma72BvUm7U4"/>
+</div>
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">PIXEL AVATAR LAB</span>
+</div>
+<button class="material-symbols-outlined hover:bg-surface-container-high transition-transform active:translate-y-px-unit p-1" data-icon="notifications">notifications</button>
+</header>
+<main class="flex-1 overflow-y-auto pb-32 px-margin-mobile pt-gutter space-y-gutter pixel-grid-bg">
+<!-- Character Preview Canvas -->
+<section class="relative aspect-square w-full bg-surface-container border-pixel-border-md border-ink-black flex items-center justify-center overflow-hidden group">
+<!-- Isometric Depth Effect -->
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+<div class="relative z-10 w-64 h-64 transform transition-transform group-hover:scale-105 duration-300">
+<img alt="Full Body Character" class="w-full h-full object-contain" data-alt="A full-body 16-bit pixel art character standing in a heroic pose in the center of a clean, minimalist studio. The character is wearing a professional yet futuristic outfit with sharp lines and bold colors. The background features a subtle 4px pixel grid pattern in light grey. The lighting is bright and even, highlighting the vibrant primary blue and pixel green accents of the character design, maintaining a nostalgic yet premium gaming aesthetic." id="avatar-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq3mdIPjsybB1EeAg6hspQclqi2jHiCpYBZAcCSk8L6kYCYvXfK1dLkZ4W7jJq4eSmGR_qpp3e4r7Vn6xzLNsYU8sY3xR_1F02VcaYe_4UNyuNxo0VJvrDsYW66gGloweR7nH8EfH5SyUcLxr2FwTSO0peKzWhFeeZt1AosWU3rBJDRP90Cooy3ROLVF0Dpy6euC0R4pdq6q5Ad8Y8TDOaH5N6_EvAUSy5xDEyDJy0agEr96WD3fPla2PB_xFo-Mtk8CQcN0biS8s"/>
+</div>
+<!-- Glint Effect -->
+<div class="absolute top-2 left-2 w-4 h-4 bg-white/40"></div>
+<div class="absolute top-2 left-8 w-1 h-4 bg-white/20"></div>
+<!-- Stats Badge -->
+<div class="absolute bottom-4 right-4 bg-ink-black text-pixel-green px-base py-1 border-pixel-border-sm border-white font-label-pixel text-label-pixel uppercase">
+                    Level 12 Grindmaster
+                </div>
+</section>
+<!-- Categories Selection -->
+<div class="flex justify-between gap-base">
+<button class="flex-1 bg-pixel-green text-ink-black border-2 border-ink-black py-base font-label-pixel text-label-pixel uppercase shadow-[2px_2px_0px_0px_rgba(27,42,65,1)] active:translate-y-px-unit active:shadow-none">
+                    Hair
+                </button>
+<button class="flex-1 bg-paper-white text-ink-black border-2 border-ink-black py-base font-label-pixel text-label-pixel uppercase shadow-[2px_2px_0px_0px_rgba(27,42,65,1)] active:translate-y-px-unit active:shadow-none">
+                    Outfit
+                </button>
+<button class="flex-1 bg-paper-white text-ink-black border-2 border-ink-black py-base font-label-pixel text-label-pixel uppercase shadow-[2px_2px_0px_0px_rgba(27,42,65,1)] active:translate-y-px-unit active:shadow-none">
+                    Accessories
+                </button>
+</div>
+<!-- Dotted Divider -->
+<div class="dotted-divider my-base"></div>
+<!-- Customization Grid -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Item 1: Coder Checkered Shirt -->
+<div class="group relative bg-paper-white border-2 border-ink-black p-base shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] hover:bg-surface-container-low transition-colors cursor-pointer active:translate-y-1 active:translate-x-1 active:shadow-none">
+<div class="aspect-square bg-surface-variant border-2 border-ink-black mb-base flex items-center justify-center overflow-hidden">
+<img alt="Coder Shirt" class="w-16 h-16 object-contain" data-alt="A pixel art icon of a checkered flannel shirt, specifically designed for a game inventory system. The shirt uses a palette of classic workplace blue and white. The icon is rendered on a 32x32 pixel grid with sharp, clean edges and high contrast. The style is reminiscent of early 90s adventure game UI, featuring a small white glint on the top-left corner to indicate a high-quality item." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClRb0vM0gmC7GsaCLXPEYlQUZIvrjT789bDdRlJCAhF-t1Hqa26TXE5c59P7SYMuk2TLUlwpcZYJs2nDTqVekmCDgNzBbvMwn_diHdhc3r5LmqiIHVJIu-mAB4F8NfBFrxEZbHgQMl7XTswqfvf3pIQlJDFXzcI2VnX68j-k1qQemZCBK7Q3K792MLoUAnGkT1c4z4vFvd5PniN7okn3uwaS6qGoFQ-DLAUnq3HlYXiEKh3kWxo1r_dOMGSi8xV0Vg-MEQvf5Omg4"/>
+</div>
+<p class="font-label-pixel text-label-pixel uppercase text-center leading-tight">Coder Checkered Shirt</p>
+<!-- Status Chip -->
+<div class="absolute -top-2 -right-2 bg-primary text-white text-[8px] font-bold px-1 border border-ink-black uppercase">New</div>
+</div>
+<!-- Item 2: Designer Beret -->
+<div class="group relative bg-paper-white border-2 border-ink-black p-base shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] hover:bg-surface-container-low transition-colors cursor-pointer active:translate-y-1 active:translate-x-1 active:shadow-none">
+<div class="aspect-square bg-surface-variant border-2 border-ink-black mb-base flex items-center justify-center">
+<img alt="Designer Beret" class="w-16 h-16 object-contain" data-alt="A stylish pixel art beret icon in deep charcoal grey. The design is clean and iconic, tailored for a retro character customization interface. It features bold black outlines and a subtle 16-bit texture. The lighting suggests a soft source from the upper left, adding depth to the flat pixel style. The background of the icon is a neutral light grey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTAuXVTXOuXnyX30jWYFcBS3Rxx_z51wyNsANq1XG3-JnbiTq_YqQeRMH8kKsoJugnS44MyVbzlJmsRIooDIHETAWFC_zw07UIlrCMZKAlwQYLY0RaKzs5WX1o7ba5HIYy7f3i7mLWCjXi1Tx7B6CwDC9-cc9KxGjcUjlhuUgfLDXlSogn_vXeLN7cRHG6kyCxWm2kgwLPoHVAL-wSl-3nRuyCzrxVA8vQMUe0lT-vaptmXH321obMigWeSLEGmo_uosjHx6Vol1Y"/>
+</div>
+<p class="font-label-pixel text-label-pixel uppercase text-center leading-tight">Designer Beret</p>
+</div>
+<!-- Item 3: Market Suit -->
+<div class="group relative bg-pixel-green border-2 border-ink-black p-base shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] hover:bg-surface-container-low transition-colors cursor-pointer active:translate-y-1 active:translate-x-1 active:shadow-none">
+<div class="aspect-square bg-paper-white border-2 border-ink-black mb-base flex items-center justify-center">
+<img alt="Market Suit" class="w-16 h-16 object-contain" data-alt="A pixel art business suit icon with a sharp tie, rendered in a professional 16-bit style. The suit is dark navy with a white shirt and a vibrant red tie accent. The lines are crisp and perfectly aligned to a pixel grid. This asset is designed for a character customization screen, reflecting a premium workplace warrior aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR8s-3myL-tMyVqCCr5esLqoDrLWW0Hvq_UHRcqL4iWLFLW9Xwq0w8WgVRFlCHjRwiqH7fHKhylMlFFBw67x7a1-BIRLcydUIqVDaX-sSB7jSM_7noWtA9awr5go3iEd8Uw-cSnaxcua0aopvvAULSnbwSsqygTSjetmUk2ZkN9KIMV2MOch-myIzB32hyNQfUZnQ1y-Cc630UtuF215nmtkJk_onuQRks5hV3BmIjpYG8UojnPK3FRl8nX4DcR2mTG_MmJ6mLenM"/>
+</div>
+<p class="font-label-pixel text-label-pixel uppercase text-center leading-tight">Market Suit</p>
+<!-- Selected Glint -->
+<div class="absolute top-1 left-1 w-2 h-2 bg-white"></div>
+</div>
+<!-- Empty Slot / Coming Soon -->
+<div class="group relative bg-surface-dim border-2 border-dotted border-ink-black p-base opacity-60 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-ink-black mb-2" data-icon="lock">lock</span>
+<p class="font-label-pixel text-label-pixel uppercase text-center leading-tight">Quest Reward</p>
+</div>
+</div>
+<!-- Heavy Save Button -->
+<div class="pt-gutter">
+<button class="w-full bg-workplace-blue text-white font-headline-md text-headline-md py-4 border-pixel-border-md border-ink-black beveled-border shadow-[8px_8px_0px_0px_rgba(27,42,65,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] active:translate-y-2 active:translate-x-2 active:shadow-none transition-all uppercase tracking-widest">
+                    Save Changes
+                </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full max-w-[480px] left-1/2 -translate-x-1/2 border-t-pixel-border-md border-ink-black dark:border-surface-variant flex justify-around items-center h-20 px-base pb-safe bg-paper-white dark:bg-ink-black z-50">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-pixel text-label-pixel uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-pixel text-label-pixel uppercase">Social</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="local_cafe">local_cafe</span>
+<span class="font-label-pixel text-label-pixel uppercase">Tea Room</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-pixel text-label-pixel uppercase">AI</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-pixel-green text-ink-black border-2 border-ink-black p-1 active:translate-y-px-unit">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-pixel text-label-pixel uppercase">Profile</span>
+</button>
+</nav>
+</div>
+<script>
+        // Micro-interactions for selection
+        const customizationItems = document.querySelectorAll('.grid > div:not(.opacity-60)');
+        customizationItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove selection from all
+                customizationItems.forEach(i => {
+                    i.classList.remove('bg-pixel-green');
+                    i.classList.add('bg-paper-white');
+                    const glint = i.querySelector('.top-1');
+                    if(glint) glint.remove();
+                });
+                
+                // Add selection to clicked
+                item.classList.remove('bg-paper-white');
+                item.classList.add('bg-pixel-green');
+                
+                const glintDiv = document.createElement('div');
+                glintDiv.className = 'absolute top-1 left-1 w-2 h-2 bg-white';
+                item.appendChild(glintDiv);
+                
+                // Simple vibration/scale effect on preview
+                const preview = document.getElementById('avatar-preview');
+                preview.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    preview.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body></html>

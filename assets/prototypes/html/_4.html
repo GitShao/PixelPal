@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PixelPal - My Pixel Desk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Space+Grotesk:wght@700&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary": "#2138de",
+                "on-error-container": "#93000a",
+                "tertiary": "#435900",
+                "surface-variant": "#e0e3e6",
+                "primary-fixed-dim": "#bcc2ff",
+                "secondary-fixed-dim": "#ebc31a",
+                "pixel-green": "#C3F53C",
+                "paper-white": "#FFFFFF",
+                "outline-variant": "#c5c5d8",
+                "surface-dim": "#d7dadd",
+                "on-surface-variant": "#444656",
+                "surface-container-low": "#f1f4f7",
+                "surface-container-high": "#e5e8eb",
+                "primary-container": "#4156f6",
+                "secondary-container": "#fed330",
+                "surface-container": "#ebeef1",
+                "outline": "#757687",
+                "inverse-primary": "#bcc2ff",
+                "on-tertiary-fixed": "#151f00",
+                "primary-fixed": "#dfe0ff",
+                "surface-container-highest": "#e0e3e6",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#181c1e",
+                "tertiary-fixed-dim": "#a7d717",
+                "surface-bright": "#f7fafd",
+                "on-error": "#ffffff",
+                "inverse-surface": "#2d3133",
+                "workplace-blue": "#4156F6",
+                "on-tertiary-fixed-variant": "#3a4d00",
+                "on-background": "#181c1e",
+                "on-primary-container": "#eaeaff",
+                "on-primary-fixed": "#000b62",
+                "inverse-on-surface": "#eef1f4",
+                "error": "#ba1a1a",
+                "surface-tint": "#3248ea",
+                "moyu-yellow": "#FAD02C",
+                "surface": "#f7fafd",
+                "on-secondary-fixed": "#231b00",
+                "tertiary-fixed": "#c2f43b",
+                "ink-black": "#1B2A41",
+                "secondary-fixed": "#ffe07d",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed-variant": "#564500",
+                "on-secondary": "#ffffff",
+                "alert-red": "#FF4B2B",
+                "secondary": "#725c00",
+                "on-tertiary-container": "#cafd44",
+                "on-primary-fixed-variant": "#0827d3",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#577300",
+                "error-container": "#ffdad6",
+                "on-secondary-container": "#705b00",
+                "background": "#f7fafd"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "32px",
+                "px-unit": "4px",
+                "pixel-border-md": "4px",
+                "gutter": "16px",
+                "base": "8px",
+                "margin-mobile": "16px",
+                "pixel-border-sm": "2px"
+            },
+            "fontFamily": {
+                "body-sm": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-tag": ["Space Mono"],
+                "label-pixel": ["Space Mono"],
+                "headline-lg": ["Space Grotesk"],
+                "headline-xl": ["Space Grotesk"],
+                "headline-md": ["Space Grotesk"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "label-tag": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+                "label-pixel": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .pixel-shadow {
+        box-shadow: 4px 4px 0px 0px rgba(27,42,65,1);
+      }
+      .pixel-shadow-sm {
+        box-shadow: 2px 2px 0px 0px rgba(27,42,65,1);
+      }
+      .active-press:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px 0px rgba(27,42,65,1);
+      }
+      .dotted-divider {
+        background-image: linear-gradient(to right, #1B2A41 50%, transparent 50%);
+        background-size: 4px 2px;
+        background-repeat: repeat-x;
+      }
+      .glint::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 4px;
+        height: 4px;
+        background: rgba(255,255,255,0.8);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<div class="max-w-[480px] mx-auto min-h-screen bg-paper-white relative flex flex-col border-x-pixel-border-md border-ink-black overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-paper-white dark:bg-ink-black text-ink-black dark:text-paper-white w-full top-0 sticky border-b-pixel-border-md border-ink-black dark:border-surface-variant shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] z-50">
+<div class="flex justify-between items-center px-margin-mobile py-base h-16 w-full max-w-[480px] mx-auto">
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 border-2 border-ink-black overflow-hidden bg-primary-fixed">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmtXzLaiVncu3vM1sVsShiJDD9-RcTqveHil2WHrvMpI_aQkYmXXH0idynDz_vPTB6x0OOY3pXfzG9uNTOgSGhrPsqDNSrOQmhpmYRJo6FJUjVoki_hGJQ8GIfnyNg4Ar5y5CLm8HR8zkJzg_XdsZ9V-SLlZixI83EmTHeSqhn60e-PiR2xqdoGTwm7g9HwiBK0Ric43MCNCk8LzK5QGNGmCbcO4qm-NTeDr55ZL9bt-azLqAPA4AV0XUTtiJEsnia5V7ce3rzAf4"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">STATUS: GRINDING</h1>
+</div>
+<button class="material-symbols-outlined p-base hover:bg-surface-container-high transition-transform active:translate-y-px-unit active:translate-x-px-unit">
+                    notifications
+                </button>
+</div>
+</header>
+<main class="flex-1 px-margin-mobile py-gutter pb-32">
+<!-- Hero Canvas: The Pixel Desk -->
+<section class="relative w-full aspect-square bg-surface-container rounded-none border-pixel-border-md border-ink-black pixel-shadow mb-gutter overflow-hidden flex flex-col items-center justify-center">
+<!-- Isometric Floor Effect -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#1B2A41 1px, transparent 1px); background-size: 16px 16px;"></div>
+<!-- The Desk & Character -->
+<div class="relative z-10 w-4/5 h-4/5 flex flex-col items-center justify-end">
+<!-- Monitor Item -->
+<div class="absolute top-10 left-10 w-24 h-20 bg-ink-black border-2 border-paper-white flex items-center justify-center pixel-shadow-sm">
+<div class="w-20 h-14 bg-workplace-blue flex items-center justify-center">
+<span class="material-symbols-outlined text-paper-white text-3xl">terminal</span>
+</div>
+</div>
+<!-- Plant Item -->
+<div class="absolute top-24 right-12 w-12 h-16">
+<div class="w-8 h-8 bg-tertiary absolute bottom-0 left-2"></div>
+<div class="w-12 h-12 bg-pixel-green rounded-full absolute -top-4 left-0 border-2 border-ink-black"></div>
+</div>
+<!-- Coffee Item -->
+<div class="absolute bottom-16 right-20 w-8 h-8 bg-paper-white border-2 border-ink-black rounded-sm">
+<div class="w-2 h-4 bg-ink-black absolute -top-4 right-1 opacity-20"></div>
+<span class="material-symbols-outlined text-ink-black text-xs absolute inset-0 flex items-center justify-center">local_cafe</span>
+</div>
+<!-- Character (Logo as placeholder for character) -->
+<div class="relative w-48 h-48 animate-bounce" style="animation-duration: 3s;">
+<img alt="Pixel Character" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmtXzLaiVncu3vM1sVsShiJDD9-RcTqveHil2WHrvMpI_aQkYmXXH0idynDz_vPTB6x0OOY3pXfzG9uNTOgSGhrPsqDNSrOQmhpmYRJo6FJUjVoki_hGJQ8GIfnyNg4Ar5y5CLm8HR8zkJzg_XdsZ9V-SLlZixI83EmTHeSqhn60e-PiR2xqdoGTwm7g9HwiBK0Ric43MCNCk8LzK5QGNGmCbcO4qm-NTeDr55ZL9bt-azLqAPA4AV0XUTtiJEsnia5V7ce3rzAf4"/>
+</div>
+<!-- The Desk Surface -->
+<div class="w-full h-8 bg-moyu-yellow border-t-pixel-border-md border-ink-black"></div>
+</div>
+<!-- Label Tag -->
+<div class="absolute top-4 right-4 bg-pixel-green text-ink-black px-base py-px-unit border-2 border-ink-black font-label-pixel text-label-pixel flex items-center gap-px-unit glint">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    MY PIXEL DESK
+                </div>
+</section>
+<!-- Status Indicator -->
+<div class="flex items-center justify-between mb-gutter bg-paper-white border-2 border-ink-black p-base pixel-shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-tag text-label-tag text-on-surface-variant uppercase">Current Vibe</span>
+<span class="font-headline-md text-headline-md text-ink-black flex items-center gap-base">
+                        Grinding
+                        <span class="w-4 h-4 bg-pixel-green border-2 border-ink-black rounded-full"></span>
+</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-tag text-label-tag text-on-surface-variant uppercase">Level 14</span>
+<div class="w-24 h-4 bg-surface-variant border-2 border-ink-black mt-1 overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Grid -->
+<div class="grid grid-cols-2 gap-gutter mb-gutter">
+<button class="group relative bg-primary-container text-on-primary-container p-gutter border-pixel-border-md border-ink-black pixel-shadow active-press flex flex-col items-center justify-center gap-base">
+<span class="material-symbols-outlined text-3xl">edit_note</span>
+<span class="font-label-pixel text-label-pixel">CHANGE STATUS</span>
+<div class="absolute top-1 left-1 w-2 h-2 bg-paper-white opacity-40"></div>
+</button>
+<button class="group relative bg-secondary-container text-on-secondary-container p-gutter border-pixel-border-md border-ink-black pixel-shadow active-press flex flex-col items-center justify-center gap-base">
+<span class="material-symbols-outlined text-3xl">brush</span>
+<span class="font-label-pixel text-label-pixel">DECORATE DESK</span>
+<div class="absolute top-1 left-1 w-2 h-2 bg-paper-white opacity-40"></div>
+</button>
+</div>
+<!-- Desktop Items Inventory (Bento Style) -->
+<div class="space-y-base">
+<h2 class="font-headline-md text-headline-md">DESKTOP ITEMS</h2>
+<div class="grid grid-cols-4 gap-base">
+<!-- Item Card -->
+<div class="aspect-square bg-surface-container border-2 border-ink-black flex items-center justify-center relative hover:bg-pixel-green cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-ink-black group-hover:scale-110 transition-transform">potted_plant</span>
+</div>
+<div class="aspect-square bg-surface-container border-2 border-ink-black flex items-center justify-center relative hover:bg-pixel-green cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-ink-black group-hover:scale-110 transition-transform">coffee</span>
+</div>
+<div class="aspect-square bg-surface-container border-2 border-ink-black flex items-center justify-center relative hover:bg-pixel-green cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-ink-black group-hover:scale-110 transition-transform">monitor</span>
+</div>
+<div class="aspect-square bg-surface-container border-2 border-ink-black border-dashed opacity-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-ink-black">add</span>
+</div>
+</div>
+</div>
+<!-- Recent Quests / Social -->
+<div class="mt-gutter">
+<div class="dotted-divider h-px w-full mb-gutter"></div>
+<div class="flex justify-between items-end mb-base">
+<h2 class="font-headline-md text-headline-md">TEA ROOM NEWS</h2>
+<span class="font-label-tag text-label-tag text-primary cursor-pointer hover:underline">VIEW ALL</span>
+</div>
+<div class="bg-paper-white border-2 border-ink-black p-base mb-2 flex items-center gap-base active:bg-surface-container transition-colors cursor-pointer">
+<div class="w-12 h-12 bg-moyu-yellow border-2 border-ink-black flex items-center justify-center">
+<span class="material-symbols-outlined text-ink-black">chat</span>
+</div>
+<div>
+<p class="font-label-pixel text-label-pixel">MARCUS JOINED TEA ROOM</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">"Anyone up for a coffee quest?"</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full max-w-[480px] left-1/2 -translate-x-1/2 bg-paper-white dark:bg-ink-black border-t-pixel-border-md border-ink-black dark:border-surface-variant z-50">
+<div class="flex justify-around items-center h-20 px-base pb-safe">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-pixel-green text-ink-black border-2 border-ink-black p-1 active:translate-y-px-unit transition-all" href="#">
+<span class="material-symbols-outlined" data-weight="fill">home</span>
+<span class="font-label-pixel text-label-pixel uppercase">Home</span>
+</a>
+<!-- Social -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-pixel text-label-pixel uppercase">Social</span>
+</a>
+<!-- Tea Room -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit" href="#">
+<span class="material-symbols-outlined">local_cafe</span>
+<span class="font-label-pixel text-label-pixel uppercase">Tea Room</span>
+</a>
+<!-- AI -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-pixel text-label-pixel uppercase">AI</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-1 hover:bg-surface-container-low transition-colors active:translate-y-px-unit" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-pixel text-label-pixel uppercase">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-[calc(50%-220px)] w-14 h-14 bg-primary text-on-primary border-pixel-border-md border-ink-black shadow-[4px_4px_0px_0px_rgba(27,42,65,1)] flex items-center justify-center active:translate-x-px-unit active:translate-y-px-unit active:shadow-none transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for item hovering
+        document.querySelectorAll('.aspect-square').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('translate-y-[-2px]');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('translate-y-[-2px]');
+            });
+        });
+
+        // Background parallax effect simulation on mouse move for the desk
+        const desk = document.querySelector('section');
+        desk.addEventListener('mousemove', (e) => {
+            const rect = desk.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            const char = desk.querySelector('.animate-bounce');
+            char.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+        });
+    </script>
+</body></html>
